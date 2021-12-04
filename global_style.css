@@ -126,7 +126,16 @@ body {
     margin:10px 0px 20px;
     font-size: 25px;
 }
-
+.SubHeaders .SubHeader a {
+  margin-bottom: 15px 0px;
+  margin-top: 5px;
+  display: block;
+  width:100%;
+  padding:10px;
+  outline: none;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
 .popup .form .form-element {
     margin-bottom: 15px 0px;
 }
