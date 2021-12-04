@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../global_style.css">
+    <link rel="stylesheet" href="contact_us.css">
+    <title>Sefi's Barber Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="HomePageGrid">
+        <!-- Headers -->
+        <div class="Headers">
+            <div class="Header">
+                <div class="LeftHeader">
+                    <img src="../images/cart.png" id="Cart" class="Clickable" onclick="TODO" height="35px" width="45px">
+                </div>
+            </div>
+            <div class="LogIn">
+                <div class="LeftHeader">
+                    <div class="Header">
+                        <button id="show-login">Login</button>
+                        <div class="popup">
+                            <div class="close-btn">&times;</div>
+                            <form class="form" name="login-form" onsubmit="return validateLogIn()">
+                                <h2>התחבר</h2>
+                                <div class="form-element">
+                                    <label for="email">אימייל</label>
+                                    <input type="text" id="email" placeholder="הכנס אימייל" required>
+                                </div>
+                                <div class="form-element">
+                                    <label for="password">סיסמא</label>
+                                    <input type="password" id="password" placeholder="הכנס סיסמא">
+                                </div>
+                                <div class="form-element">
+                                    <input type="checkbox" id="remember-me">
+                                    <label for="remember-me">זכור אותי</label>
+                                </div>
+                                <div class="form-element">
+                                    <input type="submit" value="התחבר">
+                                </div>
+                                <br>
+                                <button class="form-element" id="show-register">הירשם</button>
+                            </form>
+                        </div>
+                        <div class="popup-register">
+                            <div class="close-btn-register">&times;</div>
+                            <form class="form" name="register-form" onsubmit="return validateRegister()">
+                                <h2>הירשם</h2>
+                                <div class="form-element">
+                                    <label for="email">אימייל</label>
+                                    <input type="text" id="email" placeholder="הכנס אימייל" required>
+                                </div>
+                                <div class="form-element">
+                                    <label for="password">סיסמא</label>
+                                    <input type="password" id="password" placeholder="הכנס סיסמא">
+                                </div>
+                                <div class="form-element">
+                                    <label for="fname">שם פרטי</label>
+                                    <input type="text" id="fname" placeholder="הכנס שם פרטי">
+                                </div>
+                                <div class="form-element">
+                                    <label for="lname">שם משפחה</label>
+                                    <input type="text" id="lname" placeholder="הכנס שם משפחה">
+                                </div>
+                                <br><br>
+                                <div class="form-element">
+                                    <input type="submit" value="הירשם">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Header">
+                <div class="RightHeader">
+                    <img src="../images/barber_shop_logo.png" height="60px" width="60px">
+                </div>
+            </div>
+            <div class="Header">
+                <div class="RightHeader" id="SefiHasapar">
+                    מספרת ״ספי הספר״
+                </div>
+            </div>
+            <div id="cart-info" class="Header RightHeader nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+                <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>
+                <p class="mb-0 text-capitalize"><span id="item-count"> 0 </span> חפצים <span class="item-total">0 ₪</span></p>
+                </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row max-height justify-content-center align-items-center">
+              <div id="cart" class="cart">
+                <div class="cart-total-container d-flex justify-content-around text-capitalize mt-5">
+                  <h5>total</h5>
+                  <h5> ₪ <strong id="cart-total" class="font-weight-bold">0</strong> </h5>
+                </div>
+                <!--end cart total -->
+                <!-- cart buttons -->
+                <div class="cart-buttons-container mt-3 d-flex justify-content-between">
+                  <i id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase" onclick="return clearCart()">clear cart</i>
+                  <a href="../payment/payment.html" id="checkout-cart" class="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
+                </div>
+                <!--end of  cart buttons -->
+                <!--  -->
+              </div>
+            </div>
+          </div>
+        <!-- Sub Headers -->
+        <div class="SubHeaders">
+            <div class="SubHeader">
+                <a href="../homepage/homepage.html">
+                    דף הבית
+                </a>
+            </div>
+            <div class="SubHeader">
+                <a href="../barber_shop_info/shop_info.html">
+                    אודות המספרה
+                </a>
+            </div>
+            <div class="SubHeader">
+                <a href="../shop_services/shop_services.html">
+                    שירותי המספרה וקטלוג העבודות
+                </a>
+            </div>
+            <div class="SubHeader">
+                <a href="../shop_items/items.html">
+                    רכישת מוצרי טיפוח
+                </a>
+            </div>
+            <div class="SubHeader">
+                <a href="../schedule/schedule.html">
+                    קביעת תור
+                </a>
+            </div>
+        </div>
+
+        <!-- General Info -->
+        <div class="ContactUs">
+            <h1>כתובת: ראשון לציון, מרכז העירייה<br>טלפון: 0501111111<br>אימייל seffi-the-saparos@gmailush.com</h1>
+        </div>
+
+
+        <!-- Footers -->
+        <div class="Footers">
+            <div class="LeftFooter">
+                <a href="https://www.facebook.com/Seffi-The-Barber-103851772130539" target="_blank">
+                    <img src="../images/facebook_logo.png" class="Clickable" height="50px" width="50px">
+                </a>
+            </div>
+            <div class="LeftFooter">
+                <a href="https://www.instagram.com/sefi__barbershop" target="_blank">
+                    <img src="../images/instagram_logo.jpeg" class="Clickable" height="50px" width="50px">
+                </a>
+            </div>
+            <div class="CentralFooter">
+                <button>מדיניות פרטיות</button>
+            </div>
+            <div class="CentralFooter">
+                <div class="CentralLeftFooter">
+                    <button>תקנון האתר</button>
+                </div>
+            </div>
+            <div class="CentralFooter">
+                <div class="CentralRightFooter">
+                    <a href="../contactus/contact_us.html">
+                        <img src="../images/contact_us.png" class="Clickable" height="80px" width="80px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.querySelector("#show-login").addEventListener("click", function(){
+        document.querySelector(".popup").classList.add("active");
+    })
+    document.querySelector(".popup .close-btn").addEventListener("click", function(){
+        document.querySelector(".popup").classList.remove("active");
+    })
+</script>
+    <!-- jquery -->
+    <script src="../js_imports/jquery-3.3.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="../js_imports/bootstrap.bundle.min.js"></script>
+    <script src="../cart.js"></script>
+    <script src="../login-register.js"></script>
+</body>
+</html>

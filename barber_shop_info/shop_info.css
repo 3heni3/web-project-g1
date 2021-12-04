@@ -1,0 +1,38 @@
+.GeneralInformation {
+    grid-area: general-info;
+    text-align: center;
+}
+.Sefi {
+    grid-area: Sefi
+}
+.Dani {
+    grid-area: Dani
+}
+.Mika {
+    grid-area: Mika
+}
+.Shaked {
+    grid-area: Shaked
+}
+.CrewMembers {
+    grid-area: crew-members;
+    display: grid;
+    grid-template-areas:
+    'Sefi Dani Mika Shaked';
+    float: left;
+    margin-bottom: 30px;
+}
+.Location {
+    grid-area: "location";
+    padding-bottom: 30px;
+}
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'general-info general-info general-info general-info general-info general-info general-info'
+    'crew-members crew-members crew-members crew-members crew-members crew-members crew-members'
+    'location location location location location location location'
+    'footer footer footer footer footer footer footer'
+}

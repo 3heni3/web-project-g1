@@ -1,0 +1,12 @@
+.ContactUs {
+    grid-area: contact;
+    padding-top: 20px;
+}
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'contact contact contact contact contact contact contact'
+    'footer footer footer footer footer footer footer'
+}
