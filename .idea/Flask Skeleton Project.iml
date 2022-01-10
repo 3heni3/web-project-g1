@@ -22,6 +22,7 @@
         <option value="$MODULE_DIR$/pages/change_details/templates" />
         <option value="$MODULE_DIR$/pages/takanon/templates" />
         <option value="$MODULE_DIR$/pages/schedules/templates" />
+        <option value="$MODULE_DIR$/pages/privacy/templates" />
       </list>
     </option>
   </component>

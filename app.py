@@ -12,6 +12,7 @@ from pages.shop_info.shop_info import shop_info
 from pages.shop_items.shop_items import shop_items
 from pages.change_details.change_details import change_details
 from pages.takanon.takanon import takanon
+from pages.privacy.privacy import privacy
 from pages.schedules.schedules import schedules
 from pages.shop_services.shop_services import shop_services
 from utilities.db.db_helpers.cart_data import cart_data_db
@@ -35,6 +36,7 @@ app.register_blueprint(change_details)
 app.register_blueprint(register)
 app.register_blueprint(cart)
 app.register_blueprint(takanon)
+app.register_blueprint(privacy)
 app.register_blueprint(schedules)
 
 

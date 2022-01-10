@@ -1,6 +1,6 @@
 
-.Takanon {
-    grid-area: takanon;
+.Privacy {
+    grid-area: privacy;
     padding: 20px;
     text-align: right;
 }
@@ -10,6 +10,6 @@
     grid-template-areas:
     'header header header header header header header'
     'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
-    'takanon takanon takanon takanon takanon takanon takanon'
+    'privacy privacy privacy privacy privacy privacy privacy'
     'footer footer footer footer footer footer footer'
 }
