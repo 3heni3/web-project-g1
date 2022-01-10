@@ -9,39 +9,50 @@
     <div class="OpeningHours">
         <h1 dir="rtl">
             שעות פתיחה
-            יום ראשון - חמישי: 09:00-16:30<br>יום שישי: 09:00-13:00<br>יום שבת: נא להשאיר פרטים ואחזור אליכם
+            יום ראשון - חמישי: 09:00-17:00<br>יום שישי: 09:00-13:00<br>יום שבת: נא להשאיר פרטים ואחזור אליכם
+            כל תור לוקח כחצי שעה, וניתן לקבוע עד 30 ימים מראש.
+            לאחר שתבחרו את התאריך, תופיע לכם הרשימה של התורים הפנויים
         </h1>
     </div>
 
     <div class="form">
-        <form>
-            <!-- Service Type -->
-            <div class="ScheduleTypeNavBar">
-                <label for="phone" class="phone-form-element">
-                    <span>אנא הכנס את מספר הטלפון שלך</span>
-                    <br>
-                    <input type="text" id="phone" name="phone" required>
-                    <span class="error" aria-live="polite"></span>
-                    <br>
-                </label>
+        <form id="schedule-form" method="POST" action="/schedule">
+            <label for="phone" class="phone-form-element">
+                <span>אנא הכנס את מספר הטלפון שלך</span>
                 <br>
-                <label for="ServiceType">תבחר את סוג השירות</label>
+                <input type="text" id="phone" name="phone" required>
+                <span class="error" aria-live="polite"></span>
                 <br>
-                <select name="services" id="ServiceType" required>
-                    <option value="Haircut">תספורת</option>
-                    <option value="HairStraightning">החלקה</option>
-                    <option value="HairColor">צביעת שיער</option>
-                </select>
-            </div>
-
-            <!-- Schedule -->
-            <label for="Schedule">תבחר את סוג השירות</label>
+            </label>
             <br>
-            <select name="Schedule" id="Schedule" required>
-                {% for date_ in dates %}
-                    <option value="{{ date_ }}">תספורת</option>
-                {% endfor %}
-            </select>
+            <label for="ServiceType">
+                <span>תבחר את סוג השירות</span>
+                <br>
+                <select name="ServiceType" id="ServiceType" form="schedule-form" required>
+                    <option value="תספורת">תספורת</option>
+                    <option value="החלקה">החלקה</option>
+                    <option value="צביעת שיער">צביעת שיער</option>
+                </select>
+            </label>
+            <br>
+            <label for="date">
+                <span>אנא בחר יום מועדף</span>
+                <br>
+                <select name="date" id="date"
+                        onload="return calculateAvailableHours(document.getElementById(date).value)" required>
+                    {% for date_ in dates %}
+                        <option value="{{ date_ }}"
+                                {% if chosen_date is defined and date_ == chosen_date %}
+                                selected
+                                {% endif %}
+                        >{{ date_ }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <br>
+            <label for="hour" id="schedule-hour">
+            </label>
+            <br>
             <br>
             <input type="submit" value="הקש לזימון לתור"
                    onclick="return confirm('האם אתה בטוח? במידה וכן, תלחץ על OK וניצור עמך קשר')" class="submit">

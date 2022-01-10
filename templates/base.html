@@ -45,16 +45,12 @@ Base page blocks:
         <!-- Headers -->
         <div id="HomePageGrid">
         <header class="Headers">
-            <div class="Header">
-                <div class="RightHeader">
-                    <img src="{{ url_for('static', filename='media/img/barber_shop_logo.png') }}" height="60px"
-                         width="60px" alt="ShopLogo">
-                </div>
+            <div class="Header RightHeader">
+                <img src="{{ url_for('static', filename='media/img/barber_shop_logo.png') }}" height="60px"
+                     width="60px" alt="ShopLogo">
             </div>
-            <div class="Header">
-                <div class="RightHeader" id="SefiHasapar">
-                    מספרת ״ספי הספר״
-                </div>
+            <div class="Header RightHeader" id="SefiHasapar">
+                מספרת ״ספי הספר״
             </div>
             <div id="cart-info"
                  class="Header RightHeader nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
@@ -78,6 +74,10 @@ Base page blocks:
                 <div class="LogIn RightHeader Header">
                     <a href="{{ url_for('change_details.index') }}"
                        class="button-73">שנה פרטי משתמש</a>
+                </div>
+                <div class="LogIn RightHeader Header">
+                    <a href="{{ url_for('schedules.index') }}"
+                       class="button-73">ניהול וצפיה בתורים</a>
                 </div>
                 <br><br><br><br>
             {% else %}
@@ -206,23 +206,17 @@ Base page blocks:
                          alt="InstagramLogo">
                 </a>
             </div>
-            <div class="CentralFooter">
-                <button>מדיניות פרטיות</button>
+            <div class="CentralFooter CentralLeftFooter">
+                <a href="{{ url_for('takanon.index') }}"
+                   class="button-73">תקנון האתר</a>
             </div>
-            <div class="CentralFooter">
-                <div class="CentralLeftFooter">
-                    <button>תקנון האתר</button>
-                </div>
-            </div>
-            <div class="CentralFooter">
-                <div class="CentralRightFooter">
-                    <a href="{{ url_for('contact_us.index') }}">
-                        <img src="{{ url_for('static', filename='media/img/contact_us.png') }}" class="Clickable"
-                             height="80px"
-                             width="80px"
-                             alt="ContactUs">
-                    </a>
-                </div>
+            <div class="CentralFooter CentralRightFooter">
+                <a href="{{ url_for('contact_us.index') }}">
+                    <img src="{{ url_for('static', filename='media/img/contact_us.png') }}" class="Clickable"
+                         height="80px"
+                         width="80px"
+                         alt="ContactUs">
+                </a>
             </div>
         </footer>
     {% endblock %}
@@ -245,6 +239,9 @@ Base page blocks:
     <script>
         alert('רק משתמשים מחוברים רשאים לגשת לדף הזה. אנא התחבר או הירשם')
     </script>
+{% endif %}
+{% if schedule_msg %}
+    <script>alert("{{ schedule_msg }}")</script>
 {% endif %}
 {% block page_body_js %}{% endblock %}
 </body>

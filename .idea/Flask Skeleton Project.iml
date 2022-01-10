@@ -20,6 +20,8 @@
         <option value="$MODULE_DIR$/pages/shop_services/templates" />
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/pages/change_details/templates" />
+        <option value="$MODULE_DIR$/pages/takanon/templates" />
+        <option value="$MODULE_DIR$/pages/schedules/templates" />
       </list>
     </option>
   </component>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('schedules.static', filename='css/schedules.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="OldSchedules">
+        <p>טיפולים שעתידים להתבצע</p>
+        {% if new_schedules %}
+            <ul>
+                {% for schedule in new_schedules %}
+
+                    <li id="{{ schedule.schedule_time }}">שעת הטיפול {{ schedule.schedule_time }} סוג
+                        הטיפול {{ schedule.schedule_type }}
+                        <button class="button-73 small-btn" onclick="cancelSchedule(this.parentElement.id)">בטל תור</button>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <li>אין לך טיפולים שעתידים להתבצע. הנך מוזמן לקבוע תורים למספרה של ספי.</li>
+        {% endif %}
+
+        <p>טיפולים שכבר התבצעו או מתבצעים היום</p>
+        {% if old_schedules %}
+            <ul>
+                {% for schedule in old_schedules %}
+                    <li>שעת הטיפול {{ schedule.schedule_time }} סוג הטיפול {{ schedule.schedule_type }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <li>אין לך טיפולים שהתבצעו</li>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('schedules.static', filename='js/schedules.js') }}"></script>
+{% endblock %}

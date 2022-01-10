@@ -13,7 +13,8 @@ homepage = Blueprint('homepage', __name__, static_folder='static', static_url_pa
 def index():
     return render_template('homepage.html', tips=tips_db.get_tips(), example_photos=example_photos_db.get_images_urls(),
                            recommendations=recommendations_db.get_recommendations(),
-                           total_payment=request.args.get('total_payment'))
+                           total_payment=request.args.get('total_payment'),
+                           schedule_msg=request.args.get('schedule_msg'))
 
 
 @homepage.route('/homepage')

@@ -1,0 +1,18 @@
+
+.Takanon {
+    grid-area: recommendations;
+    padding: 20px;
+    text-align: right;
+}
+
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'shop-image shop-image shop-image shop-image shop-image shop-image shop-image'
+    'customer-slides customer-slides customer-slides customer-slides customer-slides customer-slides customer-slides'
+    'recommendations recommendations recommendations recommendations recommendations recommendations recommendations'
+    'tips tips tips tips tips tips tips'
+    'footer footer footer footer footer footer footer'
+}

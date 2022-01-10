@@ -1,28 +1,26 @@
-window.addEventListener('load', () => {
-    const now = new Date();
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    if (now.getMinutes() !== 0) {
-        if (now.getMinutes() < 30) {
-            now.setMinutes(30)
-        } else {
-            //  No need to worry about moving to next day because the barber shop is open until 6PM max.
-            now.setMinutes(0)
-            now.setHours(now.getHours() + 1)
-        }
-    }
-    let meeting_time = document.getElementById('meeting_time');
-    meeting_time.value = now.toISOString().slice(0, -8);
-});
-
-function calcNextWeek() {
-    let currDate = new Date()
-    let dates = new Array(5);
-    let index = 0;
-    while (count < 5) {
-        while (currDate.getDay() === 6 || currDate.getDay() === 0) {
-            currDate.setDate(currDate.getDate() + 1);
-        }
-        dates[index++] = currDate
-    }
-    return dates
+function calculateAvailableHours(dateVal) {
+    fetch(`/available_hours?` + new URLSearchParams({'date_': dateVal}))
+        .then(response => response.json())
+        .then(hours => {
+            if (hours.length === 0) {
+                alert('אין תורים פנויים בתאריך שביקשת, נא לנסות תאריך אחר.')
+                return false
+            }
+            let hourOptions = hours.map(hour => `<option value=${hour}>${hour}</option>`)
+            let innerHTML = `
+            <span>אנא בחר שעה</span>
+            <br>
+            <select name="hour" id="hour" required>
+            ${hourOptions.join('\n')}
+            </select>
+            `
+            let scheduleHourFormElement = document.getElementById('schedule-hour')
+            scheduleHourFormElement.innerHTML = innerHTML
+        })
 }
+
+document.getElementById('date').addEventListener('change', function () {
+    let dateVal = this.value
+    calculateAvailableHours(dateVal)
+})
+calculateAvailableHours(document.getElementById('date').value)
