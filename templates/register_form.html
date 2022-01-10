@@ -48,5 +48,9 @@
 </div>
 <br>
 <div class="form-element">
-    <input type="submit" value="{{ form_submit_value }}">
+    <input type="submit" value="{{ form_submit_value }}"
+            {% if form_submit_value=='שנה פרטים' %}
+           class="button-73 small-btn"
+            {% endif %}
+    >
 </div>

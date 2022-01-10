@@ -104,7 +104,7 @@ body {
 }
 
 .popup.active {
-    top: 50%;
+    top: 70%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.25);
     transition: top 0ms ease-in-out 0ms,
@@ -113,7 +113,7 @@ body {
 }
 
 .popup .close-btn,
-.popup-register .close-btn-register {
+.close-btn-register {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -209,7 +209,7 @@ body {
 }
 
 .popup-register.active {
-    top: 50%;
+    top: 70%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.25);
     transition: top 0ms ease-in-out 0ms,
