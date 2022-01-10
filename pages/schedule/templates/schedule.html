@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('schedule.static', filename='css/schedule.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- Open Hours -->
+    <div class="OpeningHours">
+        <h1 dir="rtl">
+            שעות פתיחה
+            יום ראשון - חמישי: 09:00-16:30<br>יום שישי: 09:00-13:00<br>יום שבת: נא להשאיר פרטים ואחזור אליכם
+        </h1>
+    </div>
+
+    <div class="form">
+        <form>
+            <!-- Service Type -->
+            <div class="ScheduleTypeNavBar">
+                <label for="phone" class="phone-form-element">
+                    <span>אנא הכנס את מספר הטלפון שלך</span>
+                    <br>
+                    <input type="text" id="phone" name="phone" required>
+                    <span class="error" aria-live="polite"></span>
+                    <br>
+                </label>
+                <br>
+                <label for="ServiceType">תבחר את סוג השירות</label>
+                <br>
+                <select name="services" id="ServiceType" required>
+                    <option value="Haircut">תספורת</option>
+                    <option value="HairStraightning">החלקה</option>
+                    <option value="HairColor">צביעת שיער</option>
+                </select>
+            </div>
+
+            <!-- Schedule -->
+            <label for="Schedule">תבחר את סוג השירות</label>
+            <br>
+            <select name="Schedule" id="Schedule" required>
+                {% for date_ in dates %}
+                    <option value="{{ date_ }}">תספורת</option>
+                {% endfor %}
+            </select>
+            <br>
+            <input type="submit" value="הקש לזימון לתור"
+                   onclick="return confirm('האם אתה בטוח? במידה וכן, תלחץ על OK וניצור עמך קשר')" class="submit">
+        </form>
+    </div>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('schedule.static', filename='js/schedule.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+#PaymentForm {
+    grid-area: payment-form;
+    text-align: center;
+}
+
+
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'payment-form payment-form payment-form payment-form payment-form payment-form payment-form'
+    'footer footer footer footer footer footer footer'
+}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('payment.static', filename='css/payment.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="form" id="PaymentForm">
+        <form name="payment-form" method="POST" action="/payment">
+            <h5>מספר הפריטים:</h5>
+            <h5><strong id="payment-count" class="font-weight-bold">0</strong></h5>
+            <h5>סה"כ לתשלום</h5>
+            <h5> ₪ <strong id="payment-total" class="font-weight-bold">0</strong></h5>
+            <label for="creditCardName" class="creditCardName-form-element">
+                <span>מספר כרטיס השראי</span>
+                <br>
+                <input type="text" id="creditCardName" name="creditCardName"
+                       placeholder="הכנס כרטיס אשראי"
+                       required>
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label for="userID" class="ID-form-element">
+                <span>תעודת זהות</span>
+                <br>
+                <input type="text" id="userID" name="userID"
+                       placeholder="הכנס תעודת זהות"
+                       required>
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label for="CVV" class="CVV-form-element">
+                <span>שלוש הספרות בגב הכרטיס</span>
+                <br>
+                <input type="text" id="CVV" name="CVV"
+                       placeholder="הכנס תעודת זהות"
+                       required>
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label for="CCExpDate" class="CCExpDate-form-element">
+                <span>תאריך פג תוקף, יש לכתוב חח/שששש</span>
+                <br>
+                <input type="text" id="CCExpDate" name="CCExpDate"
+                       placeholder="הכנס תאריך תוקף אשראי"
+                       required>
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label>
+                <span>סה״כ לתשלום</span>
+                <br>
+                <input type="number" id="total" name="total" value="" readonly>
+            </label>
+            <br>
+            <br>
+            <input type="submit" value="שלם">
+        </form>
+    </div>
+{% endblock %}
+{% block page_body_js %}
+    <script>
+        let result = calculateTotal()
+        document.getElementById('payment-total').textContent = `${result.totalPrice}`
+        document.getElementById('total').textContent = `${result.totalPrice}`
+        document.getElementById('payment-count').textContent = `${result.count}`
+        document.getElementById('total').value = `${result.totalPrice}`
+    </script>
+{% endblock %}

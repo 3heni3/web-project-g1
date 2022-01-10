@@ -1,0 +1,33 @@
+
+.img-container img {
+    width: 200px;
+    height: 200px;
+}
+
+.cart-item img {
+    width: 200px;
+    height: 200px;
+}
+
+#store {
+    grid-area: catalog;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em;
+    text-align: center;
+}
+
+.CatalogTitle {
+    grid-area: catalog-title;
+    text-align: center;
+}
+
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'catalog-title catalog-title catalog-title catalog-title catalog-title catalog-title catalog-title'
+    'catalog catalog catalog catalog catalog catalog catalog'
+    'footer footer footer footer footer footer footer'
+}

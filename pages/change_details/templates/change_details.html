@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('change_details.static', filename='css/change_details.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- General Info -->
+    <div class="ChangeDetails">
+        <form class="form" name="change-details-form" id="change-details-form" method="POST" action="/change_details">
+            <h2>שנה את אחד מהפרטים הבאים</h2>
+            {% set form_submit_value="שנה פרטים" %}
+            {% include 'register_form.html' %}
+        </form>
+    </div>
+{% endblock %}
+{% block page_body_js %}
+    <script src="{{ url_for('change_details.static', filename='js/change_details.js') }}"></script>
+    {% if change_details_resp %}
+        <script>
+            alert("{{ change_details_resp }}")
+        </script>
+    {% endif %}
+{% endblock %}

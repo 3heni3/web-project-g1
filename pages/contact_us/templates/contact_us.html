@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('contact_us.static', filename='css/contact_us.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- General Info -->
+    <div class="ContactUs">
+        {% if (contact_msg is defined) and contact_msg %}
+            <script>alert("{{contact_msg}}")</script>
+        {% endif %}
+        <p>ניתן להשאיר פרטים וניצור עמך קשר, נא למלא אימייל או מספר טלפון, או את שניהם</p>
+        <form name="contact-form" id="contact-form" method="POST" action="/contact_us">
+            <label for="phone" class="phone-form-element">
+                <span>מספר טלפון</span>
+                <br>
+                <input type="text" id="phone" name="phone" required>
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label for="email" class="email-form-element">
+                <span>אימייל</span>
+                <br>
+                <input type="email" id="email" name="email" required minlength="8">
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label for="name" class="name-form-element">
+                <span>שם (לא חובה למלא)</span>
+                <br>
+                <input type="text" id="name" name="name" placeholder="הכנס שם">
+                <span class="error" aria-live="polite"></span>
+                <br>
+            </label>
+            <label for="description">סיבת הפנייה (לא חובה למלא)</label><br>
+            <input type="text" id="description" name="description"><br>
+            <input type="submit" value="הגש בקשה לפנייה">
+        </form>
+        <p>ניתן גם לגשת אלינו בטלפון או באימייל במידה ולא תרצה להשאיר פרטים</p>
+        <p>כתובת: ראשון לציון, מרכז העירייה<br>טלפון: 0501111111<br>אימייל seffi-the-saparos@gmailush.com</p>
+    </div>
+{% endblock %}

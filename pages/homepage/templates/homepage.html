@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- Barber Shop Image -->
+    <div class="BarberShopImage">
+        <img src="{{ url_for('homepage.static', filename='img/barber_shop_image.jpeg') }}" alt="Barber Image">
+    </div>
+
+    <!-- Customer Images In Barbershop -->
+
+    <!-- Slideshow container -->
+    <div class="CustomerSlideshow-container">
+        {% for image_url in example_photos %}
+            <img class="CustomerSlides" src="{{ image_url }}" alt="CustomerSlide">
+        {% endfor %}
+    </div>
+
+    <!-- Recommendations -->
+    <div class="Recommendations">
+        <div class="ListTitle">המלצות</div>
+        <ul>
+            {% for recommendation in recommendations %}
+                <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Tips -->
+    <div class="Tips">
+        <div class="ListTitle">טיפים לשמירה על שיער בריא</div>
+        <ul>
+            {% for tip in tips %}
+                <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('homepage.static', filename='js/customerSlides.js') }}"></script>
+{% endblock %}

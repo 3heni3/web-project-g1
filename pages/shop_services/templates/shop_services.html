@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('shop_services.static', filename='css/shop_services.css') }} "/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- Services Info -->
+    <div class="ServicesInfo">
+        <h2>ספי הספר - מתמקצע בעיצוב שיער, החלקות, גוונים ותסרוקות לאירועים.</h2>
+    </div>
+
+    <!-- Works Images -->
+    <div class="BeforeAfterImages">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+            {% for image_url in image_urls %}
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <h2 class="numbertext">{{ image_urls | length }} / {{ loop.index }}</h2>
+                    <br>
+                    <img src="{{ image_url }}" width="900px" height="450px">
+                </div>
+            {% endfor %}
+
+            <!-- Next and previous buttons -->
+            <a class="next" onclick="plusSlides(1)">&#10094;</a>
+            <a class="prev" onclick="plusSlides(-1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            {% for n in range(image_urls | length) %}
+                <span class="dot" onclick="currentSlide({{ n + 1 }})"></span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('shop_services.static', filename='js/slides.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+.GeneralInformation {
+    grid-area: general-info;
+    text-align: center;
+}
+
+.CrewMembers {
+    grid-area: crew-members;
+    display: block;
+    text-align: center;
+    margin: auto auto 30px;
+}
+
+.CrewMembers .CrewMember p {
+    text-align: center;
+}
+
+.CrewMembers .CrewMember img {
+    text-align: center;
+}
+
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'general-info general-info general-info general-info general-info general-info general-info'
+    'crew-members crew-members crew-members crew-members crew-members crew-members crew-members'
+    'footer footer footer footer footer footer footer'
+}

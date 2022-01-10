@@ -1,0 +1,52 @@
+<div class="form-element">
+    <label for="email-reg" class="email-form-element">
+        <span>אימייל</span>
+        <br>
+        <input type="email" id="email-reg" name="email-reg"
+               placeholder="הכנס אימייל"
+                {% if required %}
+               required
+                {% endif %}
+        >
+        <span class="error" aria-live="polite"></span>
+        <br>
+    </label>
+</div>
+<div class="form-element">
+    <label for="password-reg">
+        <span>סיסמא</span>
+        <input type="password" id="password-reg" name="password-reg" placeholder="הכנס סיסמא"
+                {% if required %}
+               required
+                {% endif %}
+               minlength="8">
+    </label>
+</div>
+<div class="form-element">
+    <label for="fname" class="name-form-element">
+        <span>שם פרטי</span>
+        <br>
+        <input type="text" id="fname" name="fname" placeholder="הכנס שם פרטי"
+                {% if required %}
+               required
+                {% endif %}>
+        <span class="error" aria-live="polite"></span>
+        <br>
+    </label>
+</div>
+<div class="form-element">
+    <label for="lname" class="name-form-element">
+        <span>שם משפחה</span>
+        <br>
+        <input type="text" id="lname" name="lname" placeholder="הכנס שם משפחה"
+                {% if required %}
+               required
+                {% endif %}>
+        <span class="error" aria-live="polite"></span>
+        <br>
+    </label>
+</div>
+<br>
+<div class="form-element">
+    <input type="submit" value="{{ form_submit_value }}">
+</div>

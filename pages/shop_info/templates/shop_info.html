@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('shop_info.static', filename='css/shop_info.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- General Info -->
+    <div class="GeneralInformation">
+        <h2>המספרה ממוקמת בראשון לציון מאז הקמתה בשנת 2010<br>מקבלת לקוחות בשעות פעילותה</h2>
+    </div>
+
+    <!-- Crew Members -->
+    <div class="CrewMembers">
+        {% for worker in workers %}
+            <div class="CrewMember">
+                <img src="{{ worker.image_url }}" height="400px" width="300px" alt="Worker Image">
+                <p>{{ worker.worker_description }}</p>
+            </div>
+        {% endfor %}
+        <h1>מיקום המספרה:</h1>
+        <p>חי כיף ראשון לציון</p>
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="600" height="500" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=Hai%20Kef&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <a href="https://123movies-to.org"></a><br>
+                <a href="https://www.embedgooglemap.net">גוגל מפס</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location -->
+    <div class="Location">
+
+    </div>
+{% endblock %}

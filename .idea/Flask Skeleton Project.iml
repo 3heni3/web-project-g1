@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.9 (web-project-g1)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/pages/contact_us/templates" />
+        <option value="$MODULE_DIR$/pages/payment/templates" />
+        <option value="$MODULE_DIR$/pages/homepage/templates" />
+        <option value="$MODULE_DIR$/pages/schedule/templates" />
+        <option value="$MODULE_DIR$/pages/shop_info/templates" />
+        <option value="$MODULE_DIR$/pages/shop_items/templates" />
+        <option value="$MODULE_DIR$/pages/shop_services/templates" />
+        <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/pages/change_details/templates" />
+      </list>
+    </option>
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="pytest" />
+  </component>
+</module>

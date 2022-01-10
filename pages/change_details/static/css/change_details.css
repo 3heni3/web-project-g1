@@ -1,0 +1,16 @@
+.form .form-element input[type="text"],
+#fname,
+#lname,
+.form .form-element input[type="email"],
+.form .form-element input[type="password"] {
+    margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 10%;
+    padding: 10px;
+    text-align: center;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}

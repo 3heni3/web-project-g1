@@ -1,0 +1,32 @@
+.OpeningHours {
+    grid-area: opening-hours;
+    text-align: center;
+}
+
+.ScheduleTypeNavBar {
+    grid-area: service-type;
+    text-align: center;
+}
+
+.Schedule {
+    grid-area: schedule;
+    text-align: center;
+}
+
+#HomePageGrid {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'sub-header sub-header sub-header sub-header sub-header sub-header sub-header'
+    'opening-hours opening-hours opening-hours opening-hours opening-hours opening-hours opening-hours'
+    'service-type service-type service-type service-type service-type service-type service-type'
+    'schedule schedule schedule schedule schedule schedule schedule'
+    'footer footer footer footer footer footer footer'
+}
+
+form {
+    display: inline-block;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%
+}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('shop_items.static', filename='css/shop_items.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <!-- Catalog Title -->
+    <div class="CatalogTitle">
+        <h2>קטלוג הפריטים</h2>
+    </div>
+
+    <!-- store -->
+    <section id="store" class="store py-5">
+        <div class="container">
+            <!-- section title -->
+            <div class="row">
+                <div class="col-10 mx-auto col-sm-6 text-center">
+                    <h1 class="text-capitalize">our <strong class="banner-title ">store</strong></h1>
+                </div>
+                <form id="sort-form" action="/shop_items" method="GET">
+                    <label for="sort-type">מיין מוצרים לפי</label>
+                <br>
+                    <select onchange="this.form.submit()" id="sort-type" form="sort-form" name="sort-type">
+                        {% for sort_id, sort_val in sort_options.items() %}
+                            {% if selected_sort_id == sort_id %}
+                                <option value="{{ sort_id }}" selected>{{ sort_val }}</option>
+                            {% else %}
+                                <option value="{{ sort_id }}">{{ sort_val }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select><br>
+                    <label for="minprice">מחיר מינימלי</label><br>
+                    {% if min_price %}
+                        <input type="number" id="minprice" name="minprice" value="{{ min_price }}"><br>
+                    {% else %}
+                        <input type="number" id="minprice" name="minprice"><br>
+                    {% endif %}
+                    <label for="maxprice">מחיר מקסימלי</label><br>
+                    {% if max_price %}
+                        <input type="number" id="maxprice" name="maxprice" value="{{ max_price }}"><br>
+                    {% else %}
+                        <input type="number" id="maxprice" name="maxprice"><br>
+                    {% endif %}
+                <br>
+                    <input type="submit" value="סנן">
+                </form>
+            </div>
+
+            <!-- end of section title -->
+
+            <!-- store  items-->
+            <div class="row store-items" id="store-items">
+                {% for item in store_items %}
+                    <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item">
+                        <div class="card">
+                            <div class="img-container">
+                                <img src={{ item.image_url }} id="{{ item.product_id }}"
+                                     class="card-img-top store-img" alt="">
+                                {% if user %}
+                                    <span class="store-item-icon logged-in">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                                {% else %}
+                                    <span class="store-item-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text d-flex justify-content-between text-capitalize">
+                                    <h5 class="store-item-name">{{ item.product_name }}</h5>
+                                    <h5 class="store-item-value">₪ <strong
+                                            class="font-weight-bold store-item-price">{{ item.price }}</strong>
+                                    </h5>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- end of card-->
+                    </div>
+                    <!--end of single store item-->
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--end of store items -->
+{% endblock %}
