@@ -35,5 +35,6 @@ def charge_credit_card():
     exp_date = args['CCExpDate']
     total = args['total']
     transactions_db.add_transaction(cc_number, user_id, cvv, total, exp_date)
-
-    return redirect(url_for('homepage.index', total_payment=total))
+    alert_msg = f'כרטיס האשראי שלך חויב ב {total} שקלים בהצלחה!'
+    session['alert_msg'] = alert_msg
+    return redirect(url_for('homepage.index'))

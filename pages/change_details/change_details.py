@@ -8,7 +8,6 @@ change_details = Blueprint('change_details', __name__, static_folder='static', s
 
 @change_details.route('/change_details')
 def index():
-    x = request.args
     return render_template('change_details.html', change_details_resp=request.args.get('change_details_resp'))
 
 
@@ -19,7 +18,8 @@ def is_email_taken(user_email):
 @change_details.route('/change_details', methods=['POST'])
 def change_details_req():
     if not session.get('email'):
-        return redirect(url_for('homepage.index', not_logged_access=True))
+        session['alert_msg'] = 'רק משתמשים מחוברים רשאים לגשת לדף הזה. אנא התחבר או הירשם'
+        return redirect(url_for('homepage.index'))
     args = request.form
     new_email = args.get('email-reg')
     new_first_name = args.get('fname')
@@ -38,4 +38,6 @@ def change_details_req():
     else:
         change_details_resp = 'הפרטים הוחלפו בהצלחה'
         session['email'] = new_email or session['email']
+        session['first_name'] = new_first_name or session.get('first_name')
+        session['last_name'] = new_last_name or session.get('last_name')
     return redirect(url_for('change_details.index', change_details_resp=change_details_resp))

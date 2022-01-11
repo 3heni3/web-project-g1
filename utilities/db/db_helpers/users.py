@@ -12,8 +12,9 @@ class Users:
         return dbManager.build_fetch_query('users', conditions=conditions)
 
     def insert_user(self, user_email, password, first_name, last_name):
-        return dbManager.build_insert_query('users', self.USER_COLUMNS, [[f'"{user_email}"', f'"{password}"',
-                                                                          f'"{first_name}"', f'"{last_name}"']])
+        return dbManager.build_insert_query('users', self.USER_COLUMNS,
+                                            [[f'"{user_email}"', f'"{password}"',
+                                              f'"{first_name}"', f'"{last_name}"']])
 
     def update_user(self, user_email, password, first_name, last_name, curr_email):
         updates = {}

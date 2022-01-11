@@ -24,7 +24,7 @@ def get_min_max_hours(date_):
 @schedule.route('/schedule')
 def index():
     # only calculate next 30 days for scheduling
-    curr_day = datetime.now()
+    curr_day = datetime.now() + timedelta(days=1)
     dates = []
     for _ in range(30):
         if curr_day.isoweekday() != ISO_DAYS_OFF:
@@ -40,7 +40,8 @@ def add_schedule():
     phone = args['phone']
     schedule_time = f'{args["date"]} {args["hour"]}'
     schedule_db.add_schedule(service_type, phone, schedule_time, session.get('email'))
-    return redirect(url_for('homepage.index', schedule_msg='התור נקבע בהצלחה!'))
+    session['alert_msg'] = 'התור נקבע בהצלחה!'
+    return redirect(url_for('homepage.index'))
 
 
 @schedule.route('/available_hours')

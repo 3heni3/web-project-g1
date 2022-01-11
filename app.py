@@ -41,7 +41,7 @@ app.register_blueprint(schedules)
 
 
 @app.context_processor
-def inject_user():
+def inject():
     data = {}
     # Welcome message
     if session.get('first_name'):
@@ -51,6 +51,10 @@ def inject_user():
         products = cart_data_db.get_user_active_cart(session['email'])
         if products:
             data['products'] = products
+    alert_msg = session.get('alert_msg')
+    if alert_msg:
+        data['alert_msg'] = alert_msg
+        session['alert_msg'] = None
 
     return data
 

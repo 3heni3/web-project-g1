@@ -26,6 +26,9 @@ document.querySelector('#login-form').addEventListener('submit', function (e) {
                 alert("הפרטים שהזנת לא נכונים. אנא וודא שהמייל והסיסמא נכונים")
                 e.preventDefault();
             }
+            else {
+                alert('התחברת בהצלחה לאתר!')
+            }
         },
         error: function () {
             alert("קרתה שגיאה לא ידועה בשרת, אנא נסה שוב.")
@@ -62,6 +65,9 @@ document.querySelector('#register-form').addEventListener('submit', function (e)
                         if (!result.valid) {
                             alert("נא נסה להתחבר עוד כמה דק׳ לאחר שהמערכת שמרה את הפרטים")
                             e.preventDefault();
+                        }
+                        else {
+                            alert('נרשמת בהצלחה לאתר! ברוכים הבאים!')
                         }
                     },
                     error: function () {

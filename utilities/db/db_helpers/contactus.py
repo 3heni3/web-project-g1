@@ -5,7 +5,9 @@ class ContactUs:
     CONTACT_COLS = ['phone', 'email', 'contact_name', 'contact_description']
 
     def add_contact_request(self, phone, email, name, description):
-        return dbManager.build_insert_query('contact_us', self.CONTACT_COLS, [[phone, email, name, description]])
+        return dbManager.build_insert_query('contact_us',
+                                            self.CONTACT_COLS,
+                                            [[f'"{phone}"', f'"{email}"', f'"{name}"', f'"{description}"']])
 
 
 # Create instance for export

@@ -8,4 +8,5 @@ log_out = Blueprint('log_out', __name__, static_folder='static', static_url_path
 @log_out.route('/log_out')
 def index():
     session.clear()
+    session['alert_msg'] = 'התנתקת בהצלחה מאתר!'
     return redirect(url_for('homepage.index'))

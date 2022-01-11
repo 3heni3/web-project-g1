@@ -71,20 +71,17 @@ class DBManager:
         where_clause = f'WHERE {" AND ".join(conditions)}' if conditions else ''
         order_clause = f'ORDER BY {order_column} {order_type}' if order_column else ''
         limit_clause = f'LIMIT {limit}' if limit else ''
-
         return self.fetch(f'SELECT {select_columns} from {table_name} {where_clause} {order_clause} {limit_clause};')
 
     def build_insert_query(self, table_name, table_columns, values):
         values_clause_list = [f'({",".join(value)})' for value in values]
         values_clause = ','.join(values_clause_list)
-
         return self.commit(f'INSERT INTO {table_name} ({",".join(table_columns)}) VALUES {values_clause};')
 
     def build_update_query(self, table_name, updates: dict, conditions=None):
         update_clauses = ', '.join(f'{col} = {val}' for col, val in updates.items())
         set_clause = f'SET {update_clauses}'
         where_clause = f'WHERE {" AND ".join(conditions)}' if conditions else ''
-
         return self.commit(f'UPDATE {table_name} {set_clause} {where_clause};')
 
 

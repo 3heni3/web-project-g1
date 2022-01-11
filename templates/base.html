@@ -195,7 +195,8 @@ Base page blocks:
                 <a href="https://www.facebook.com/Seffi-The-Barber-103851772130539" target="_blank">
                     <img src="{{ url_for('static', filename='media/img/facebook_logo.png') }}" class="Clickable"
                          height="50px"
-                         width="50px">
+                         width="50px"
+                         alt="">
                 </a>
             </div>
             <div class="LeftFooter">
@@ -234,18 +235,8 @@ Base page blocks:
 <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
 <script src="{{ url_for('static', filename='js/global_validations.js') }}"></script>
 <script src="{{ url_for('static', filename='js/login-register.js') }}"></script>
-{% if total_payment %}
-    <script>
-        alert("כרטיס האשראי שלך חויב ב {{ total_payment }} שקלים בהצלחה!")
-    </script>
-{% endif %}
-{% if not_logged_access %}
-    <script>
-        alert('רק משתמשים מחוברים רשאים לגשת לדף הזה. אנא התחבר או הירשם')
-    </script>
-{% endif %}
-{% if schedule_msg %}
-    <script>alert("{{ schedule_msg }}")</script>
+{% if alert_msg %}
+    <script>alert("{{ alert_msg }}")</script>
 {% endif %}
 {% block page_body_js %}{% endblock %}
 </body>
